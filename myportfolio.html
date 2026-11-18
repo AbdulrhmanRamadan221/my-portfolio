@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="html-root">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Abdulrhman Ramadan | Front-End Developer & UI Engineer</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Cairo:wght@400;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Cairo', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        deepBg: '#030712',
+                        cardBg: '#0f172a',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #030712;
+            color: #f3f4f6;
+            scroll-behavior: smooth;
+        }
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(236, 72, 153, 0.15);
+        }
+        .neon-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: linear-gradient(145deg, rgba(15, 23, 42, 0.9), rgba(3, 7, 18, 0.95));
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .neon-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(236, 72, 153, 0.5);
+            box-shadow: 0 20px 40px -15px rgba(236, 72, 153, 0.2);
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #030712; }
+        ::-webkit-scrollbar-thumb { background: rgba(236, 72, 153, 0.3); border-radius: 99px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(236, 72, 153, 0.6); }
+    </style>
+</head>
+<body class="antialiased selection:bg-pink-500 selection:text-white">
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 glass-panel border-b border-slate-800/80">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-pink-500 to-violet-600 text-white font-mono font-black flex items-center justify-center text-lg shadow-lg shadow-pink-500/25 group-hover:scale-105 transition-transform">
+                    AR
+                </div>
+                <div>
+                    <span id="nav-name" class="font-black text-white text-base block leading-none">Abdulrhman Ramadan</span>
+                    <span id="nav-role" class="font-mono text-xs text-pink-400 mt-1 block">Frontend & UI Developer</span>
+                </div>
+            </a>
+            <div class="hidden md:flex items-center gap-8 text-sm font-bold text-slate-300">
+                <a href="#about" class="nav-about hover:text-pink-400 transition-colors">About</a>
+                <a href="#projects" class="nav-projects hover:text-pink-400 transition-colors">Projects</a>
+                <a href="#skills" class="nav-skills hover:text-pink-400 transition-colors">Skills</a>
+                <a href="#contact" class="nav-contact hover:text-pink-400 transition-colors">Contact</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button onclick="toggleLanguage()" class="px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-pink-400 font-bold text-xs transition-all flex items-center gap-2 shadow">
+                    <i class="fa-solid fa-globe"></i>
+                    <span id="lang-btn-text">العربية</span>
+                </button>
+                <a href="#contact" id="nav-cta" class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-pink-500 to-violet-600 hover:opacity-90 text-white font-black text-xs sm:text-sm transition-all shadow-lg shadow-pink-500/25">
+                    Let's Talk
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="py-20 lg:py-32 relative overflow-hidden">
+        <div class="absolute top-1/4 right-1/4 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-10 left-1/4 w-80 h-80 bg-violet-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="max-w-6xl mx-auto px-6 relative z-10">
+            <div class="max-w-3xl space-y-6">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-pink-500/10 border border-pink-500/25 text-pink-400 font-mono text-xs">
+                    <span class="w-2 h-2 rounded-full bg-pink-400 animate-ping"></span>
+                    <span id="hero-badge">Available for freelance & remote projects</span>
+                </div>
+                <h1 id="hero-title" class="text-4xl sm:text-6xl font-black text-white leading-tight">
+                    Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-400 to-indigo-400">Abdulrhman Ramadan</span>.
+                </h1>
+                <p id="hero-desc" class="text-lg sm:text-xl text-slate-400 leading-relaxed font-light">
+                    Frontend Developer & UI Engineer. I turn creative ideas into blazing-fast, interactive, and minimalist web applications with clean, scalable code.
+                </p>
+                <div class="flex flex-wrap items-center gap-4 pt-4">
+                    <a href="#projects" id="hero-btn-projects" class="px-6 py-3.5 rounded-2xl bg-gradient-to-r from-pink-500 to-violet-600 text-white font-black text-sm transition-all shadow-xl shadow-pink-500/25 flex items-center gap-2">
+                        <i class="fa-solid fa-code"></i>
+                        <span>Explore My Work</span>
+                    </a>
+                    <a href="#contact" id="hero-btn-contact" class="px-6 py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 font-bold text-sm transition-all">
+                        Get In Touch
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 border-t border-slate-800/80 bg-slate-950/40">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-4">
+                    <span id="about-tag" class="font-mono text-xs text-pink-400 uppercase tracking-widest">ABOUT ME</span>
+                    <h2 id="about-title" class="text-3xl font-black text-white">Passionate about clean code and minimalist design</h2>
+                    <p id="about-desc" class="text-slate-400 leading-relaxed text-sm sm:text-base">
+                        I believe beauty lies in simplicity and order. I specialize in modern web development (HTML, Tailwind CSS, JavaScript), crafting smart booking systems, and interactive interfaces that empower businesses, gyms, and clinics to scale digitally.
+                    </p>
+                </div>
+                <div class="lg:col-span-5">
+                    <div class="glass-panel p-6 rounded-3xl space-y-3 font-mono text-xs text-slate-300 shadow-2xl">
+                        <div class="text-pink-400">// developer_profile.json</div>
+                        <div><span class="text-violet-400">"name"</span>: "Abdulrhman Ramadan",</div>
+                        <div><span class="text-violet-400">"focus"</span>: "Frontend & Booking Systems",</div>
+                        <div><span class="text-violet-400">"stack"</span>: ["HTML5", "Tailwind CSS", "JavaScript", "UI/UX"],</div>
+                        <div><span class="text-violet-400">"status"</span>: "Ready for New Challenges"</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 border-t border-slate-800/80">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+                <div>
+                    <span id="projects-tag" class="font-mono text-xs text-pink-400 uppercase tracking-widest">PORTFOLIO</span>
+                    <h2 id="projects-heading" class="text-3xl font-black text-white mt-1">Featured Projects & Systems</h2>
+                </div>
+                <p id="projects-sub" class="text-slate-400 text-sm max-w-md">Live standalone web demos built with high performance and interactive UI/UX.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="neon-card rounded-3xl overflow-hidden flex flex-col justify-between">
+                    <div class="p-6 bg-gradient-to-br from-slate-900 to-pink-950/40 border-b border-slate-800">
+                        <span id="p1-tag" class="px-3 py-1 rounded-full bg-pink-500/10 text-pink-400 font-mono text-xs border border-pink-500/25">Smart Booking System</span>
+                        <h3 id="p1-title" class="text-xl font-black text-white mt-4 mb-2">Apex Fitness Club</h3>
+                        <p id="p1-desc" class="text-xs sm:text-sm text-slate-400">A fully functional gym platform featuring an AI chatbot booking engine and admin dashboard with Excel export.</p>
+                    </div>
+                    <div class="p-6 flex items-center justify-between">
+                        <span class="font-mono text-xs text-slate-500">HTML / Tailwind / JS</span>
+                        <a href="code_artifact (1).html" target="_blank" class="px-4 py-2 rounded-xl bg-pink-500/15 hover:bg-pink-500 text-pink-300 hover:text-white font-bold text-xs transition-all flex items-center gap-1.5">
+                            <span class="btn-live-text">Live Demo</span> <i class="fa-solid fa-arrow-right-long"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="neon-card rounded-3xl overflow-hidden flex flex-col justify-between">
+                    <div class="p-6 bg-gradient-to-br from-slate-900 to-violet-950/40 border-b border-slate-800">
+                        <span id="p2-tag" class="px-3 py-1 rounded-full bg-violet-500/10 text-violet-400 font-mono text-xs border border-violet-500/25">Clinic Platform</span>
+                        <h3 id="p2-title" class="text-xl font-black text-white mt-4 mb-2">Nova Dental & Aesthetics</h3>
+                        <p id="p2-desc" class="text-xs sm:text-sm text-slate-400">An upscale dental & aesthetics clinic web app equipped with AI medical reception and appointment tracking.</p>
+                    </div>
+                    <div class="p-6 flex items-center justify-between">
+                        <span class="font-mono text-xs text-slate-500">Tailwind / AI UI</span>
+                        <a href="code_artifact.html" target="_blank" class="px-4 py-2 rounded-xl bg-pink-500/15 hover:bg-pink-500 text-pink-300 hover:text-white font-bold text-xs transition-all flex items-center gap-1.5">
+                            <span class="btn-live-text">Live Demo</span> <i class="fa-solid fa-arrow-right-long"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="neon-card rounded-3xl overflow-hidden flex flex-col justify-between">
+                    <div class="p-6 bg-gradient-to-br from-slate-900 to-indigo-950/40 border-b border-slate-800">
+                        <span id="p3-tag" class="px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-400 font-mono text-xs border border-indigo-500/25">Interactive Portfolio</span>
+                        <h3 id="p3-title" class="text-xl font-black text-white mt-4 mb-2">Interactive Freelancer Portfolio</h3>
+                        <p id="p3-desc" class="text-xs sm:text-sm text-slate-400">A dynamic developer portfolio featuring an integrated AI resume assistant and client inquiry management.</p>
+                    </div>
+                    <div class="p-6 flex items-center justify-between">
+                        <span class="font-mono text-xs text-slate-500">Interactive UI</span>
+                        <a href="code_artifact (2).html" target="_blank" class="px-4 py-2 rounded-xl bg-pink-500/15 hover:bg-pink-500 text-pink-300 hover:text-white font-bold text-xs transition-all flex items-center gap-1.5">
+                            <span class="btn-live-text">Live Demo</span> <i class="fa-solid fa-arrow-right-long"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 border-t border-slate-800/80 bg-slate-950/40">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="max-w-xl mb-12">
+                <span id="skills-tag" class="font-mono text-xs text-pink-400 uppercase tracking-widest">EXPERTISE</span>
+                <h2 id="skills-heading" class="text-3xl font-black text-white mt-1">Core Skills & Tech Stack</h2>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                <div class="glass-panel p-5 rounded-2xl text-center space-y-2">
+                    <i class="fa-brands fa-html5 text-3xl text-pink-400"></i>
+                    <div class="font-bold text-sm text-white">HTML5 & CSS3</div>
+                </div>
+                <div class="glass-panel p-5 rounded-2xl text-center space-y-2">
+                    <i class="fa-solid fa-wind text-3xl text-violet-400"></i>
+                    <div class="font-bold text-sm text-white">Tailwind CSS</div>
+                </div>
+                <div class="glass-panel p-5 rounded-2xl text-center space-y-2">
+                    <i class="fa-brands fa-js text-3xl text-amber-400"></i>
+                    <div class="font-bold text-sm text-white">JavaScript (ES6+)</div>
+                </div>
+                <div class="glass-panel p-5 rounded-2xl text-center space-y-2">
+                    <i class="fa-solid fa-robot text-3xl text-indigo-400"></i>
+                    <div class="font-bold text-sm text-white">AI UI Integration</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 border-t border-slate-800/80">
+        <div class="max-w-6xl mx-auto px-6 text-center max-w-2xl space-y-6">
+            <span id="contact-tag" class="font-mono text-xs text-pink-400 uppercase tracking-widest">GET IN TOUCH</span>
+            <h2 id="contact-heading" class="text-3xl sm:text-4xl font-black text-white">Have a project or collaboration in mind?</h2>
+            <p id="contact-sub" class="text-slate-400 text-sm sm:text-base leading-relaxed">
+                Feel free to reach out via email or WhatsApp to discuss your next web development project.
+            </p>
+            <div class="pt-4 flex flex-wrap justify-center gap-4">
+                <a href="mailto:abdo.ramadan.two@gmail.com" class="px-6 py-3.5 rounded-2xl bg-gradient-to-r from-pink-500 to-violet-600 text-white font-black text-sm transition-all shadow-lg shadow-pink-500/25 flex items-center gap-2">
+                    <i class="fa-solid fa-envelope"></i> <span id="btn-email-text">abdo.ramadan.two@gmail.com</span>
+                </a>
+                <a href="https://wa.me/201559877467" target="_blank" class="px-6 py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-white font-bold text-sm transition-all flex items-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-emerald-400 text-lg"></i> <span dir="ltr">01559877467</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-slate-800/80 text-center text-xs font-mono text-slate-500">
+        <p id="footer-text">© 2026 Abdulrhman Ramadan. Crafted with minimalism & clean code.</p>
+    </footer>
+
+    <!-- Language Translation Script -->
+    <script>
+        let currentLang = 'en';
+
+        const translations = {
+            en: {
+                htmlDir: 'ltr',
+                langBtn: 'العربية',
+                navName: 'Abdulrhman Ramadan',
+                navRole: 'Frontend & UI Developer',
+                navAbout: 'About',
+                navProjects: 'Projects',
+                navSkills: 'Skills',
+                navContact: 'Contact',
+                navCta: "Let's Talk",
+                heroBadge: 'Available for freelance & remote projects',
+                heroTitle: "Hi, I'm <span class='text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-400 to-indigo-400'>Abdulrhman Ramadan</span>.",
+                heroDesc: 'Frontend Developer & UI Engineer. I turn creative ideas into blazing-fast, interactive, and minimalist web applications with clean, scalable code.',
+                heroBtnProjects: 'Explore My Work',
+                heroBtnContact: 'Get In Touch',
+                aboutTag: 'ABOUT ME',
+                aboutTitle: 'Passionate about clean code and minimalist design',
+                aboutDesc: 'I believe beauty lies in simplicity and order. I specialize in modern web development (HTML, Tailwind CSS, JavaScript), crafting smart booking systems, and interactive interfaces that empower businesses, gyms, and clinics to scale digitally.',
+                projectsTag: 'PORTFOLIO',
+                projectsHeading: 'Featured Projects & Systems',
+                projectsSub: 'Live standalone web demos built with high performance and interactive UI/UX.',
+                p1Tag: 'Smart Booking System',
+                p1Title: 'Apex Fitness Club',
+                p1Desc: 'A fully functional gym platform featuring an AI chatbot booking engine and admin dashboard with Excel export.',
+                p2Tag: 'Clinic Platform',
+                p2Title: 'Nova Dental & Aesthetics',
+                p2Desc: 'An upscale dental & aesthetics clinic web app equipped with AI medical reception and appointment tracking.',
+                p3Tag: 'Interactive Portfolio',
+                p3Title: 'Interactive Freelancer Portfolio',
+                p3Desc: 'A dynamic developer portfolio featuring an integrated AI resume assistant and client inquiry management.',
+                btnLiveText: 'Live Demo',
+                skillsTag: 'EXPERTISE',
+                skillsHeading: 'Core Skills & Tech Stack',
+                contactTag: 'GET IN TOUCH',
+                contactHeading: 'Have a project or collaboration in mind?',
+                contactSub: 'Feel free to reach out via email or WhatsApp to discuss your next web development project.',
+                footerText: '© 2026 Abdulrhman Ramadan. Crafted with minimalism & clean code.'
+            },
+            ar: {
+                htmlDir: 'rtl',
+                langBtn: 'English',
+                navName: 'عبدالرحمن رمضان',
+                navRole: 'مطور واجهات ومصمم تجارب مستخدم',
+                navAbout: 'عني',
+                navProjects: 'المشاريع',
+                navSkills: 'المهارات',
+                navContact: 'تواصل معي',
+                navCta: 'توظيف أو استشارة',
+                heroBadge: 'متاح لمشاريع العمل الحر والتوظيف عن بُعد',
+                heroTitle: "أهلاً بك، أنا <span class='text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-400 to-indigo-400'>عبدالرحمن رمضان</span>.",
+                heroDesc: 'مطور واجهات ويب ومصمم تجارب مستخدم. أحول الأفكار الإبداعية إلى تطبيقات ويب سريعة، تفاعلية، وعصرية بأكواد نظيفة وقابلة للتطوير.',
+                heroBtnProjects: 'استكشف أعمالي ومشاريعي',
+                heroBtnContact: 'تواصل معي',
+                aboutTag: 'عني',
+                aboutTitle: 'شغف بالأكواد النظيفة والتصميم البسيط',
+                aboutDesc: 'أؤمن بأن الجمال يكمن في البساطة والتنظيم. أتخصص في تطوير الويب الحديث (HTML, Tailwind CSS, JavaScript)، وبناء أنظمة حجز ذكية ومواقع تخدم الأنشطة التجارية والعيادات والصالات الرياضية باحترافية.',
+                projectsTag: 'معرض الأعمال',
+                projectsHeading: 'أبرز المشاريع والأنظمة المطورة',
+                projectsSub: 'نماذج حية ومستقلة لمواقع وأنظمة حجز ذكية بأداء عالٍ وتصميم تفاعلي.',
+                p1Tag: 'نظام حجز ذكي',
+                p1Title: 'أبيكس فتنس كلوب (Apex Fitness)',
+                p1Desc: 'منصة رياضية متكاملة تضم مساعد حجز ذكي (AI Chatbot) ولوحة تحكم للإدارة مع ميزة تصدير البيانات إلى Excel.',
+                p2Tag: 'منصة عيادات',
+                p2Title: 'عيادات نوفا (Nova Clinic)',
+                p2Desc: 'تطبيق ويب لعيادة أسنان وتجميل راقية مزود بمساعد استقبال طبي ذكي ونظام متابعة للمواعيد.',
+                p3Tag: 'بورتفوليو تفاعلي',
+                p3Title: 'بورتفوليو المستقل الذكي',
+                p3Desc: 'منصة عرض أعمال ديناميكية تتضمن مساعد سيرة ذاتية ذكي ونظام لإدارة طلبات الشركات والعملاء.',
+                btnLiveText: 'معاينة حية',
+                skillsTag: 'الخبرات',
+                skillsHeading: 'المهارات والتقنيات المستخدمة',
+                contactTag: 'تواصل معي',
+                contactHeading: 'هل لديك مشروع أو فكرة تريد تنفيذها؟',
+                contactSub: 'يسعدني تواصلك معي عبر البريد الإلكتروني أو الواتساب لمناقشة تفاصيل مشروعك القادم.',
+                footerText: '© 2026 عبدالرحمن رمضان. جميع الحقوق محفوظة.'
+            }
+        };
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'ar' : 'en';
+            const t = translations[currentLang];
+            const htmlRoot = document.getElementById('html-root');
+
+            htmlRoot.setAttribute('lang', currentLang);
+            htmlRoot.setAttribute('dir', t.htmlDir);
+
+            document.getElementById('lang-btn-text').textContent = t.langBtn;
+            document.getElementById('nav-name').textContent = t.navName;
+            document.getElementById('nav-role').textContent = t.navRole;
+            document.querySelector('.nav-about').textContent = t.navAbout;
+            document.querySelector('.nav-projects').textContent = t.navProjects;
+            document.querySelector('.nav-skills').textContent = t.navSkills;
+            document.querySelector('.nav-contact').textContent = t.navContact;
+            document.getElementById('nav-cta').textContent = t.navCta;
+
+            document.getElementById('hero-badge').textContent = t.heroBadge;
+            document.getElementById('hero-title').innerHTML = t.heroTitle;
+            document.getElementById('hero-desc').textContent = t.heroDesc;
+            document.getElementById('hero-btn-projects').querySelector('span').textContent = t.heroBtnProjects;
+            document.getElementById('hero-btn-contact').textContent = t.heroBtnContact;
+
+            document.getElementById('about-tag').textContent = t.aboutTag;
+            document.getElementById('about-title').textContent = t.aboutTitle;
+            document.getElementById('about-desc').textContent = t.aboutDesc;
+
+            document.getElementById('projects-tag').textContent = t.projectsTag;
+            document.getElementById('projects-heading').textContent = t.projectsHeading;
+            document.getElementById('projects-sub').textContent = t.projectsSub;
+
+            document.getElementById('p1-tag').textContent = t.p1Tag;
+            document.getElementById('p1-title').textContent = t.p1Title;
+            document.getElementById('p1-desc').textContent = t.p1Desc;
+
+            document.getElementById('p2-tag').textContent = t.p2Tag;
+            document.getElementById('p2-title').textContent = t.p2Title;
+            document.getElementById('p2-desc').textContent = t.p2Desc;
+
+            document.getElementById('p3-tag').textContent = t.p3Tag;
+            document.getElementById('p3-title').textContent = t.p3Title;
+            document.getElementById('p3-desc').textContent = t.p3Desc;
+
+            document.querySelectorAll('.btn-live-text').forEach(el => el.textContent = t.btnLiveText);
+
+            document.getElementById('skills-tag').textContent = t.skillsTag;
+            document.getElementById('skills-heading').textContent = t.skillsHeading;
+
+            document.getElementById('contact-tag').textContent = t.contactTag;
+            document.getElementById('contact-heading').textContent = t.contactHeading;
+            document.getElementById('contact-sub').textContent = t.contactSub;
+
+            document.getElementById('footer-text').textContent = t.footerText;
+        }
+    </script>
+</body>
+</html>
